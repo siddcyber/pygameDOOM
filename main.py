@@ -1,16 +1,36 @@
-# This is a sample Python script.
+import pygame as game
+import sys
+from settings import *
+from Map import *
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+class Game:
+    def __init__(self):
+        game.init()
+        self.screen = game.display.set_mode(resolution)
+        self.clock = game.time.Clock()
+        self.newGame()
+    def newGame(self):
+        self.map = Map(self)
 
+    def update(self):
+        game.display.flip()
+        self.clock.tick(frameRate)
+        game.display.set_caption(f'{self.clock.get_fps():.1f}')
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    def draw(self):
+        self.screen.fill('black')
+        self.map.draw()
+    def checkEvent(self):
+        for event in game.event.get():
+            if event.type ==game.QUIT or (event.type == game.KEYDOWN and event.type == game.K_ESCAPE):
+                game.quit()
+                sys.exit()
+    def run(self):
+        while True:
+            self.checkEvent()
+            self.update()
+            self.draw()
 
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    DOOM = Game()
+    DOOM.run()
