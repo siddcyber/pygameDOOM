@@ -1,35 +1,15 @@
 import pygame as game
 
 minimap = [
-    [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True],
-    [True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False,
-     False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False,
-     False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False, False, True],
-
-    [True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False,
-     False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False,
-     False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-     False, False, False, False, False, False, False, True],
-    [True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True,
-     True, True, True, True, True],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ]
 
 
@@ -48,4 +28,4 @@ class Map:
 
     def draw(self):
         for pos in self.worldmap:
-            game.draw.rect(self.DOOM.screen, 'darkgray', (pos[0] * 100, pos[1] * 100, 100, 100), 2)
+            game.draw.rect(self.DOOM.screen, 'darkgray', (pos[0] * 45, pos[1] * 50, 45, 50), 1)
