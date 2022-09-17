@@ -1,40 +1,46 @@
-import pygame as game
+import pygame as pg
 import sys
 from settings import *
 from Map import *
 from player import *
-class Game:
+
+
+class DoomGameMain:
     def __init__(self):
-        game.init()
-        self.screen = game.display.set_mode(resolution)
-        self.clock = game.time.Clock()
-        self.deltaTime = 1
+        pg.init()
+        self.screen = pg.display.set_mode(resolution)
+        self.clock = pg.time.Clock()
+        self.delta_time = 1
         self.newGame()
+
     def newGame(self):
         self.map = Map(self)
         self.player = Player(self)
 
-    def update(self):
+    def updateMain(self):
         self.player.update()
-        game.display.flip()
-        self.deltaTime = self.clock.tick(frameRate)
-        game.display.set_caption(f'{self.clock.get_fps():.1f}')
+        pg.display.flip()
+        self.delta_time = self.clock.tick(FPS)
+        pg.display.set_caption(f'{self.clock.get_fps():.1f}')
 
     def draw(self):
-        self.player.draw()
         self.screen.fill('black')
         self.map.draw()
+        self.player.draw()
+
     def checkEvent(self):
-        for event in game.event.get():
-            if event.type ==game.QUIT or (event.type == game.KEYDOWN and event.type == game.K_ESCAPE):
-                game.quit()
+        for event in pg.event.get():
+            if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
+                pg.quit()
                 sys.exit()
+
     def run(self):
         while True:
             self.checkEvent()
-            self.update()
             self.draw()
+            self.updateMain()
+
 
 if __name__ == '__main__':
-    DOOM = Game()
+    DOOM = DoomGameMain()
     DOOM.run()

@@ -28,4 +28,5 @@ class Map:
 
     def draw(self):
         for pos in self.worldmap:
+            # length, width
             game.draw.rect(self.DOOM.screen, 'darkgray', (pos[0] * 45, pos[1] * 50, 45, 50), 1)
