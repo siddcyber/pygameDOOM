@@ -4,14 +4,14 @@ from win32api import GetSystemMetrics
 # game settings
 width = int(GetSystemMetrics(0))
 height = int(GetSystemMetrics(1))
-resolution = width, height
-HALF_width = width // 2
-HALF_HEIGHT = height // 2
+halfWidth = width // 2
+halfHeight = height // 2
+resolution = halfWidth, halfHeight
 FPS = 60
 
-playerPosition = 1.5, 5  # mini_map
+playerPosition = 1, 1  # mini_map
 playerAngle = 0
-playerSpeed = 1
+playerSpeed = 0.004
 # playerSpeed = 0.004
-playerRotationSpeed = 1
+playerRotationSpeed = 0.004
 # playerRotationSpeed = 0.002
