@@ -1,32 +1,32 @@
 import pygame as game
-
+_ = False
 minimap = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1],
+    [1, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 1],
+    [1, _, _, _, 1, 1, 1, 1, _, _, _, 1, 1, 1, 1, _, _, 1],
+    [1, _, _, _, _, _, _, 1, _, _, _, 1, _, _, _, _, _, 1],
+    [1, _, _, _, _, _, _, 1, _, _, _, 1, _, _, _, _, _, 1],
+    [1, _, _, _, 1, 1, 1, 1, _, _, _, 1, 1, 1, 1, _, _, 1],
+    [1, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 1],
+    [1, _, _, _, _, 1, _, 1, _, _, _, 1, _, 1, 1, 1, _, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ]
 
 
 class Map:
-    def __init__(self, DOOM):
-        self.DOOM = DOOM
+    def __init__(self, game):
+        self.game = game
         self.minimap = minimap
-        self.worldmap = {}
+        self.world_map = {}
         self.getMap()
 
     def getMap(self):
         for j, row in enumerate(self.minimap):
             for i, value in enumerate(row):
                 if value:
-                    self.worldmap[(i, j)] = value
+                    self.world_map[(i, j)] = value
 
     def draw(self):
-        for pos in self.worldmap:
+        for pos in self.world_map:
             # length, width
-            game.draw.rect(self.DOOM.screen, 'darkgray', (pos[0] * 45, pos[1] * 50, 45, 50), 1)
+            game.draw.rect(self.game.screen, 'darkgray', (pos[0] * 45, pos[1] * 50, 45, 50), 1)
