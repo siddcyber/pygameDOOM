@@ -29,4 +29,4 @@ class Map:
     def draw(self):
         for pos in self.world_map:
             # length, width
-            game.draw.rect(self.game.screen, 'darkgray', (pos[0] * 45, pos[1] * 50, 45, 50), 1)
+            game.draw.rect(self.game.screen, 'darkgray', (pos[0] * 100, pos[1] * 100, 100, 100), 2)

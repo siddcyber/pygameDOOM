@@ -6,10 +6,11 @@ width = int(GetSystemMetrics(0))
 height = int(GetSystemMetrics(1))
 halfWidth = width // 2
 halfHeight = height // 2
-resolution = halfWidth, halfHeight
+resolution = width, height
+# resolution = halfWidth, halfHeight
 FPS = 60
 
-playerPosition = 1, 1  # mini_map
+playerPosition = 1.5, 5  # mini_map
 playerAngle = 0
 playerSpeed = 0.004
 # playerSpeed = 0.004
