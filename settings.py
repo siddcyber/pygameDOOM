@@ -2,8 +2,8 @@ import math
 from win32api import GetSystemMetrics
 
 # game settings
-# windowSize = "1080p"
-windowSize = "720p"
+windowSize = "1080p"
+# windowSize = "720p"
 
 if windowSize == "1080p":
     width = int(GetSystemMetrics(0))

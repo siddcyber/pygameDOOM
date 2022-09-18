@@ -1,6 +1,7 @@
 from settings import *
 import pygame as pg
 import math
+from Map import mapScaling
 
 
 class Player:
@@ -47,11 +48,12 @@ class Player:
         if self.check_wall(int(self.x), int(self.y + dy)):
             self.y += dy
 
+    #  changes here refers to invisible walls (fixz bug)
     def draw(self):
-        pg.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),
-                     (self.x * 100 + width * math.cos(self.angle),
-                      self.y * 100 + width * math.sin(self.angle)), 2)
-        pg.draw.circle(self.game.screen, 'green', (self.x * 100, self.y * 100), 5)
+        pg.draw.line(self.game.screen, 'yellow', (self.x * mapScaling, self.y * mapScaling),
+                     (self.x * mapScaling + width * math.cos(self.angle),
+                      self.y * mapScaling + width * math.sin(self.angle)), 2)
+        pg.draw.circle(self.game.screen, 'green', (self.x * mapScaling, self.y * mapScaling), 5)
 
     def update(self):
         self.movement()

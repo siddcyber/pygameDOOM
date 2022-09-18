@@ -1,4 +1,5 @@
 import pygame as game
+from settings import width
 
 _ = False
 minimap = [
@@ -6,12 +7,14 @@ minimap = [
     [1, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 1],
     [1, _, _, 1, 1, 1, 1, _, _, 1, 1, 1, 1, _, _, 1],
     [1, _, _, _, _, _, 1, _, _, 1, _, _, _, _, _, 1],
-    [1, _, _, _, _, _, 1, _, _, 1, _, _, _, _,  _,1],
-    [1, _, _, 1, 1, 1, 1, _, _, 1, 1, 1, 1, _,  _,1],
+    [1, _, _, _, _, _, 1, _, _, 1, _, _, _, _, _, 1],
+    [1, _, _, 1, 1, 1, 1, _, _, 1, 1, 1, 1, _, _, 1],
     [1, _, _, _, _, _, _, _, _, _, _, _, _, _, _, 1],
     [1, _, _, _, _, 1, _, 1, _, _, _, 1, _, 1, 1, 1],
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ]
+
+mapScaling = int(width // int(len(minimap[0])))
 
 
 class Map:
@@ -29,5 +32,6 @@ class Map:
 
     def draw(self):
         for pos in self.world_map:
-            # length, width
-            game.draw.rect(self.game.screen, 'darkgray', (pos[0] * 100, pos[1] * 100, 100, 100), 1)
+            # top, left, length, width
+            game.draw.rect(self.game.screen, 'darkgray',
+                           (pos[0] * mapScaling, pos[1] * mapScaling, mapScaling, mapScaling))
