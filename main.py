@@ -3,6 +3,7 @@ import sys
 from settings import *
 from Map import *
 from player import *
+from Raycasting import *
 
 
 class DoomGameMain:
@@ -16,9 +17,11 @@ class DoomGameMain:
     def newGame(self):
         self.map = Map(self)
         self.player = Player(self)
+        self.raycasting = RayCasting(self)
 
     def updateMain(self):
         self.player.update()
+        self.raycasting.update()
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps():.1f}')

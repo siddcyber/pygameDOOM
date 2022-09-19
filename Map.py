@@ -14,7 +14,7 @@ minimap = [
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ]
 
-mapScaling = int(width // int(len(minimap[0])))
+mapScaling = int(width / int(len(minimap[0])))
 
 
 class Map:

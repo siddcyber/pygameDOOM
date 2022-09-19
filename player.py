@@ -50,9 +50,9 @@ class Player:
 
     #  changes here refers to invisible walls (fixz bug)
     def draw(self):
-        pg.draw.line(self.game.screen, 'yellow', (self.x * mapScaling, self.y * mapScaling),
-                     (self.x * mapScaling + width * math.cos(self.angle),
-                      self.y * mapScaling + width * math.sin(self.angle)), 2)
+        # pg.draw.line(self.game.screen, 'yellow', (self.x * mapScaling, self.y * mapScaling),
+        #              (self.x * mapScaling + width * math.cos(self.angle),
+        #               self.y * mapScaling + width * math.sin(self.angle)), 2)
         pg.draw.circle(self.game.screen, 'green', (self.x * mapScaling, self.y * mapScaling), 5)
 
     def update(self):
