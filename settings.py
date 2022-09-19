@@ -13,7 +13,8 @@ elif windowSize == "720p":
     height = int(GetSystemMetrics(1)) // 2
 
 resolution = width, height
-
+half_width = int(width / 2)
+half_height = int(height / 2)
 FPS = 60
 playerPosition = 1, 1  # mini_map
 playerAngle = 0
@@ -24,6 +25,8 @@ playerRotationSpeed = 0.004
 FOV = math.pi / 3
 halfFOV = FOV / 2
 noOfRays = width // 2
-halfNoOfRays = noOfRays //2
+halfNoOfRays = noOfRays // 2
 deltaAngle = FOV / noOfRays
 maxDepth = 20
+screenDistance = half_width / math.tan(halfFOV)
+scale = width // noOfRays

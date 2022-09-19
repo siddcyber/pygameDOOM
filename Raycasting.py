@@ -3,6 +3,7 @@ import math
 from settings import *
 from Map import mapScaling
 
+
 class RayCasting:
     def __init__(self, game):
         self.game = game
@@ -54,8 +55,14 @@ class RayCasting:
                 depth = depth_vert
             else:
                 depth = depth_hor
-            pg.draw.line(self.game.screen, "yellow", (mapScaling * ox, mapScaling * oy),
-                         (mapScaling * ox + depth * mapScaling * cos_a, mapScaling * oy + depth * mapScaling * sin_a), 2)
+            # pg.draw.line(self.game.screen, "yellow", (mapScaling * ox, mapScaling * oy),
+            #              (mapScaling * ox + depth * mapScaling * cos_a, mapScaling * oy + depth * mapScaling * sin_a),
+            #              2)
+            # projection
+            projectionHeight = screenDistance / (depth * 0.0001)
+            #  draw walls
+            pg.draw.rect(self.game.screen, "white",
+                         (ray * scale, half_height - projectionHeight // 2, scale, projectionHeight))
 
             ray_angle += deltaAngle
 
