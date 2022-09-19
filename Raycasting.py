@@ -59,7 +59,7 @@ class RayCasting:
             #              (mapScaling * ox + depth * mapScaling * cos_a, mapScaling * oy + depth * mapScaling * sin_a),
             #              2)
             # projection
-            projectionHeight = screenDistance / (depth * 0.0001)
+            projectionHeight = screenDistance / depth  # (depth *  value that changes the depth perception of the map)
             #  draw walls
             pg.draw.rect(self.game.screen, "white",
                          (ray * scale, half_height - projectionHeight // 2, scale, projectionHeight))
