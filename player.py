@@ -1,7 +1,7 @@
 from settings import *
 import pygame as pg
 import math
-from Map import mapScaling
+from Map import mapScalingWidth, mapScalingHeight
 
 
 class Player:
@@ -49,10 +49,10 @@ class Player:
             self.y += dy
 
     # def draw(self):
-    #     pg.draw.line(self.game.screen, 'yellow', (self.x * mapScaling, self.y * mapScaling),
-    #                  (self.x * mapScaling + width * math.cos(self.angle),
-    #                   self.y * mapScaling + width * math.sin(self.angle)), 2)
-    #     pg.draw.circle(self.game.screen, 'green', (self.x * mapScaling, self.y * mapScaling), 5)
+    #     # pg.draw.line(self.game.screen, 'yellow', (self.x * mapScaling, self.y * mapScaling),
+    #     #              (self.x * mapScaling + width * math.cos(self.angle),
+    #     #               self.y * mapScaling + width * math.sin(self.angle)), 2)
+    #     pg.draw.circle(self.game.screen, 'green', (self.x * mapScalingWidth, self.y * mapScalingHeight), 5)
 
     def update(self):
         self.movement()

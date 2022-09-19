@@ -1,7 +1,7 @@
 import pygame as pg
 import math
 from settings import *
-from Map import mapScaling
+from Map import mapScalingWidth, mapScalingHeight
 
 
 class RayCasting:
@@ -55,13 +55,18 @@ class RayCasting:
                 depth = depth_vert
             else:
                 depth = depth_hor
-            # pg.draw.line(self.game.screen, "yellow", (mapScaling * ox, mapScaling * oy),
-            #              (mapScaling * ox + depth * mapScaling * cos_a, mapScaling * oy + depth * mapScaling * sin_a),
+            # pg.draw.line(self.game.screen, "yellow", (mapScalingWidth * ox, mapScalingHeight * oy),
+            #              (mapScalingWidth * ox + depth * mapScalingWidth * cos_a,
+            #               mapScalingHeight * oy + depth * mapScalingHeight * sin_a),
             #              2)
+            # remove fishbowl effect
+            depth *= math.cos(self.game.player.angle - ray_angle)
             # projection
-            projectionHeight = screenDistance / depth  # (depth *  value that changes the depth perception of the map)
+            projectionHeight = screenDistance / (
+                    depth + 0.0001)  # (depth *  value that changes the depth perception of the map)
             #  draw walls
-            pg.draw.rect(self.game.screen, "white",
+            color = [255 / (1 + depth ** 5 * 0.00002)] * 3
+            pg.draw.rect(self.game.screen, color,
                          (ray * scale, half_height - projectionHeight // 2, scale, projectionHeight))
 
             ray_angle += deltaAngle
