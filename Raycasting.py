@@ -20,7 +20,7 @@ class RayCasting:
                 wall_column = self.textures[texture].subsurface(
                     offset * (textureSize - scale), 0, scale, textureSize
                 )
-                wall_column = pg.transform.scale(wall_column, (scale, proj_height))
+                wall_column = pg.transform.scale(wall_column, (scale, int(proj_height)))
                 wall_pos = (ray * scale, half_height - proj_height // 2)
             else:
                 texture_height = textureSize * height / proj_height
@@ -28,10 +28,10 @@ class RayCasting:
                     offset * (textureSize - scale), half_textureSize - texture_height // 2,
                     scale, texture_height
                 )
-                wall_column = pg.transform.scale(wall_column, (scale, height))
+                wall_column = pg.transform.scale(wall_column, (scale, int(height)))
                 wall_pos = (ray * scale, 0)
 
-            self.objects_to_render.append((depth, wall_column, wall_pos))
+            self.objectsToRender.append((depth, wall_column, wall_pos))
 
     def ray_cast(self):
         self.raycasting_results = []
