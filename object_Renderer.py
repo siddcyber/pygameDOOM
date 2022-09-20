@@ -8,6 +8,15 @@ class ObjectRenderer:
         self.screen = game.screen
         self.wall_textures = self.load_wall_textures()
 
+    def draw(self):
+        self.render_gameObjects()
+        pass
+
+    def render_gameObjects(self):
+        listObjects = self.game.raycasting.objectsToRender
+        for depth, image, pos in listObjects:
+            self.screen.blit(image, pos)
+
     @staticmethod
     def get_textures(path, resolution=(textureSize, textureSize)):
         texture = pg.image.load(path).convert_alpha()
