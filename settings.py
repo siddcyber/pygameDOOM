@@ -31,3 +31,6 @@ maxDepth = 20
 screenDistance = half_width / math.tan(halfFOV)
 scale = width // noOfRays
 
+# texture
+textureSize = 256
+half_textureSize = textureSize//2

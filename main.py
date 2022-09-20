@@ -4,7 +4,7 @@ from settings import *
 from Map import *
 from player import *
 from Raycasting import *
-
+from object_Renderer import *
 
 class DoomGameMain:
     def __init__(self):
@@ -17,6 +17,7 @@ class DoomGameMain:
     def newGame(self):
         self.map = Map(self)
         self.player = Player(self)
+        self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
 
     def updateMain(self):
