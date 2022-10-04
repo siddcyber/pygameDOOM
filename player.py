@@ -9,6 +9,7 @@ class Player:
         self.game = Game
         self.x, self.y = playerPosition
         self.angle = playerAngle
+        self.rel = pg.mouse.get_rel()[0]
 
     def movement(self):
         sin_a = math.sin(self.angle)
