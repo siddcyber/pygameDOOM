@@ -34,3 +34,9 @@ scale = width // noOfRays
 # texture
 textureSize = 256
 half_textureSize = textureSize//2
+
+#  Mouse settings
+mouseSensitivity = 0.0003
+mouseMaxRel = 40
+mouseBorderLeft = 100
+mouseBorderRight = width - mouseBorderLeft
