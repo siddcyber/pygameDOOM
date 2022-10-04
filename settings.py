@@ -27,7 +27,7 @@ halfFOV = FOV / 2
 noOfRays = width // 2
 halfNoOfRays = noOfRays // 2
 deltaAngle = FOV / noOfRays
-maxDepth = 20
+maxDepth = 40
 screenDistance = half_width / math.tan(halfFOV)
 scale = width // noOfRays
 
