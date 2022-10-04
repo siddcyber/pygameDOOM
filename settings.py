@@ -37,6 +37,6 @@ half_textureSize = textureSize//2
 
 #  Mouse settings
 mouseSensitivity = 0.0003
-mouseMaxRel = 40
-mouseBorderLeft = 100
+mouseMaxRel = 100
+mouseBorderLeft = 0
 mouseBorderRight = width - mouseBorderLeft

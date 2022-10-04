@@ -29,10 +29,10 @@ class Player:
         if keys[pg.K_d]:
             dx += -speed_sin
             dy += speed_cos
-        if keys[pg.K_LEFT]:
-            self.angle -= playerRotationSpeed * self.game.delta_time
-        if keys[pg.K_RIGHT]:
-            self.angle += playerRotationSpeed * self.game.delta_time
+        # if keys[pg.K_LEFT]:
+        #     self.angle -= playerRotationSpeed * self.game.delta_time
+        # if keys[pg.K_RIGHT]:
+        #     self.angle += playerRotationSpeed * self.game.delta_time
         # self.x += dx
         # self.y += dy
 
@@ -53,9 +53,17 @@ class Player:
     #     #              (self.x * mapScaling + width * math.cos(self.angle),
     #     #               self.y * mapScaling + width * math.sin(self.angle)), 2)
     #     pg.draw.circle(self.game.screen, 'green', (self.x * mapScalingWidth, self.y * mapScalingHeight), 5)
+    def mouseControl(self):
+        mx, my = pg.mouse.get_pos()
+        if mx < mouseBorderLeft or mx > mouseBorderRight:
+            pg.mouse.set_pos([half_width, half_height])
+        self.rel = pg.mouse.get_rel()[0]
+        self.rel = max(-mouseMaxRel, min(mouseMaxRel, self.rel))
+        self.angle += self.rel * mouseSensitivity * self.game.delta_time
 
     def update(self):
         self.movement()
+        self.mouseControl()
 
     @property
     def position(self):
