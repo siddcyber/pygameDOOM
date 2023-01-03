@@ -18,8 +18,8 @@ class ObjectRenderer:
         self.skyOffset = (self.skyOffset + 4.5 * self.game.player.rel) % width
         self.screen.blit(self.skyImage, (-self.skyOffset, 0))
         self.screen.blit(self.skyImage, (-self.skyOffset + width, 0))
-
-    #     Floor
+        #     Floor
+        pg.draw.rect(self.screen, (30, 30, 30), (0, half_height, width, height))
 
     def render_gameObjects(self):
         listObjects = self.game.raycasting.objectsToRender
