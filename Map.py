@@ -1,4 +1,4 @@
-import pygame as game
+import pygame as pg
 from settings import width, height
 
 _ = False
@@ -33,6 +33,8 @@ minimap = [
 
 mapScalingWidth = int(width / int(len(minimap[0])))
 mapScalingHeight = int(height / int(len(minimap)))
+SpritePosList = [(1, 1), (2, 2), (10, 10), (15, 15), (len(minimap[0]) - 1.5, len(minimap) - 1.5)]
+
 
 class Map:
     def __init__(self, game):
@@ -50,5 +52,5 @@ class Map:
     def draw(self):
         for pos in self.world_map:
             # top, left, width, height
-            game.draw.rect(self.game.screen, 'darkgray',
+            pg.draw.rect(self.game.screen, 'darkgray',
                            (pos[0] * mapScalingWidth, pos[1] * mapScalingHeight, mapScalingWidth, mapScalingHeight))
