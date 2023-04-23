@@ -1,13 +1,13 @@
-import pygame as pg
+# import pygame as pg
+# from spriteObject import *
+# from settings import *
 import sys
-
 import Map
-from settings import *
 from Map import *
 from player import *
 from Raycasting import *
 from object_Renderer import *
-from spriteObject import *
+from objectHandler import *
 
 class DoomGameMain:
     def __init__(self):
@@ -22,12 +22,16 @@ class DoomGameMain:
         self.player = Player(self)
         self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
-        self.staticSprite = SpriteObject(self)
+        self.objecthandler = ObjectHandler(self)
+        # self.staticSprite = SpriteObject(self)
+        # self.animatedSprite = AnimatedSprites(self)
 
     def updateMain(self):
         self.player.update()
         self.raycasting.update()
-        self.staticSprite.update()
+        self.objecthandler.update()
+        # self.staticSprite.update()
+        # self.animatedSprite.update()
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps():.1f}')
