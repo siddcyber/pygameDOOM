@@ -95,7 +95,7 @@ class RayCasting:
             depth *= math.cos(self.game.player.angle - ray_angle)
             # projection
             projectionHeight = screenDistance / (
-                    depth + 0.0001)  # (depth *  value that changes the depth perception of the map)
+                    depth + 0.0001) # (depth *  value that changes the depth perception of the map)
             #  draw walls
             self.raycasting_results.append((depth, projectionHeight, texture, offset))
 

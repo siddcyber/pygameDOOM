@@ -3,7 +3,7 @@ from settings import *
 
 
 class SpriteObject:
-    def __init__(self, game, path='resources/sprites/static_sprites/candlebra.png', pos=(1, 1)):
+    def __init__(self, game, path='resources/sprites/static_sprites/candlebra.png', pos=(1, 1), scale=0.7, shift=0.27):
         self.game = game
         self.player = game.player
         self.x, self.y = pos
@@ -12,13 +12,17 @@ class SpriteObject:
         self.imageHalfWidth = self.image.get_width() // 2
         self.imageRatio = self.imageWidth / self.image.get_height()
         self.dx, self.dy, self.theta, self.screen_x, self.dist, self.normDist = 0, 0, 0, 0, 1, 1
+        self.spriteHalfWidth = 0
+        self.spriteScale = scale
+        self.spriteHeightShift = shift
 
     def getSpriteProjecttion(self):
-        proj = screenDistance / self.normDist
+        proj = screenDistance / self.normDist * self.spriteScale
         projWidth, projHeight = proj * self.imageRatio, proj
         image = pg.transform.scale(self.image, (int(projWidth), int(projHeight)))
         self.spriteHalfWidth = projWidth // 2
-        pos = self.screenX - self.spriteHalfWidth, half_height - projHeight // 2
+        heightShift = projHeight * self.spriteHeightShift
+        pos = self.screenX - self.spriteHalfWidth, half_height - projHeight // 2 + heightShift
         self.game.raycasting.objectsToRender.append((self.normDist, image, pos))
 
     def getsprites(self):

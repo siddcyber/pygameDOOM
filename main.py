@@ -22,8 +22,7 @@ class DoomGameMain:
         self.player = Player(self)
         self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
-        for i in range(len(SpritePosList)):
-            self.staticSprite = SpriteObject(self, pos=SpritePosList[i])
+        self.staticSprite = SpriteObject(self)
 
     def updateMain(self):
         self.player.update()

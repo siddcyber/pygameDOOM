@@ -1,7 +1,6 @@
 from settings import *
 import pygame as pg
 import math
-from Map import mapScalingWidth, mapScalingHeight
 
 
 class Player:

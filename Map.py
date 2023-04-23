@@ -33,7 +33,6 @@ minimap = [
 
 mapScalingWidth = int(width / int(len(minimap[0])))
 mapScalingHeight = int(height / int(len(minimap)))
-SpritePosList = [(1, 1), (2, 2), (10, 10), (15, 15), (len(minimap[0]) - 1.5, len(minimap) - 1.5)]
 
 
 class Map:
