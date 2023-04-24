@@ -20,7 +20,7 @@ playerPosition = 1.5, 1.5  # mini_map
 playerAngle = 0
 playerSpeed = 0.004
 playerRotationSpeed = 0.004
-playerSizeScale = 180
+playerSizeScale = 50
 # raycasting settings
 FOV = math.pi / 3
 halfFOV = FOV / 2

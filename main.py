@@ -8,6 +8,7 @@ from player import *
 from Raycasting import *
 from object_Renderer import *
 from objectHandler import *
+from weapon import *
 
 class DoomGameMain:
     def __init__(self):
@@ -23,6 +24,7 @@ class DoomGameMain:
         self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
         self.objecthandler = ObjectHandler(self)
+        self.weapon = Weapon(self)
         # self.staticSprite = SpriteObject(self)
         # self.animatedSprite = AnimatedSprites(self)
 
@@ -30,6 +32,7 @@ class DoomGameMain:
         self.player.update()
         self.raycasting.update()
         self.objecthandler.update()
+        self.weapon.update()
         # self.staticSprite.update()
         # self.animatedSprite.update()
         pg.display.flip()
@@ -39,6 +42,7 @@ class DoomGameMain:
     def draw(self):
         self.screen.fill('black')
         self.object_renderer.draw()
+        self.weapon.draw()
         # self.map.draw()
         # self.player.draw()
 
@@ -47,6 +51,7 @@ class DoomGameMain:
             if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 pg.quit()
                 sys.exit()
+            self.player.single_fire_event(event)
 
     def run(self):
         while True:
